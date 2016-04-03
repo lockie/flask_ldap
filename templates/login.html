@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% from "base.html" import render_field %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+  <div class="center-block">
+  <form action="{{ url_for('login') }}" method="post" class="form-signin" style="max-width: 330px; margin: 0 auto;">
+    <h2 class="form-signin-heading">Login</h2>
+    {{ form.hidden_tag() }}
+    <dl>
+      {{ render_field(form.username) }}
+      {{ render_field(form.password) }}
+
+      <div class="checkbox">
+        <label>
+          <input id="remember" name="remember" type="checkbox" value="y" checked="checked">Remember me
+        </label>
+      </div>
+
+    </dl>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+  </form>
+  </div>
+{% endblock %}
+
